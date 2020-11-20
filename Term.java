@@ -26,7 +26,7 @@ public class Term {
 
     // Extracts a prefix from the word.
     public String getPrefix(int len) {
-        return this.word.substring(0,len-1);
+        return this.word.substring(0,len-1); //Handle len > word.length return word
     }
 
     // Compares the two terms in case-insensitive lexicographic order.

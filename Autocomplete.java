@@ -1,3 +1,6 @@
+import javafx.print.Collation;
+
+import java.util.Arrays;
 
 public class Autocomplete {
     private Term[] dictionary;
@@ -11,13 +14,16 @@ public class Autocomplete {
     // Sorts the dictionary in *case-insensitive* lexicographic order.
     // Complexity: O(N log N), where N is the number of terms
     private void sortDictionary() {
-        /* TODO */
+        Arrays.sort(dictionary, Term.byLexicographicOrder());
     }
 
     // Returns all terms that start with the given prefix, in descending order of weight.
     // Complexity: O(log N + M log M), where M is the number of matching terms
     public Term[] allMatches(String prefix) {
         /* TODO */
+            //
+            //Hitta intervallet från firstIndexof(kort-dict, prefix) till lastIndexof(kort-dict, prefix)
+            //
         return null;
     }
 
