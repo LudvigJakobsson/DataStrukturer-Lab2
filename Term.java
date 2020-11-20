@@ -1,4 +1,7 @@
-
+import java.lang.*;
+import java.lang.Long;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class Term {
@@ -23,27 +26,49 @@ public class Term {
 
     // Extracts a prefix from the word.
     public String getPrefix(int len) {
-        /* TODO */
-        return null;
+        return this.word.substring(0,len-1);
     }
 
     // Compares the two terms in case-insensitive lexicographic order.
     public static Comparator<Term> byLexicographicOrder() {
-        /* TODO */
-        return null;
+        return new Comparator<Term>() {
+            @Override
+             public int compare(Term o1, Term o2){
+                return o1.getWord().compareToIgnoreCase(o2.getWord());
+            }
+        };
     }
 
     // Compares the two terms in descending order by weight.
     public static Comparator<Term> byReverseWeightOrder() {
-        /* TODO */
-        return null;
+        return new Comparator<Term>() {
+            @Override
+            public int compare(Term o1, Term o2) {
+                return -1 * o1.longCompare(o2.getWeight());
+            }
+        };
     }
 
     // Compares the two terms in case-insensitive lexicographic order,
     // but using only the first k characters of each word.
     public static Comparator<Term> byPrefixOrder(int k) {
-        /* TODO */
-        return null;
+        return new Comparator<Term>() {
+            @Override
+            public int compare(Term o1, Term o2){
+                return o1.getPrefix(k).compareToIgnoreCase(o2.getPrefix(k));
+            }
+        };
+    }
+
+    public int longCompare(long b) {
+        long a = this.getWeight();
+        if (a == b) {
+            return 0;
+        } else if (a < b) {
+            return -1;
+        } else {
+            return 1;
+        }
     }
 
     // Returns a string representation of this term in the following format:
@@ -51,5 +76,6 @@ public class Term {
     public String toString() {
         return String.format("%12d    %s", this.getWeight(), this.getWord());
     }
+
 
 }
