@@ -4,10 +4,10 @@
 ** Lab 2: Autocomplete
 *******************************************************************************/
 
-Name of lab group: 94
-Group member A:    Ludvig Jakobsson
-Group member B:    Anthon Odengard
-
+Name of lab group: [...]
+Group member A:    [...]
+Group member B:    [...]
+Group member C:    [...]
 
 
 /******************************************************************************
@@ -15,10 +15,10 @@ Group member B:    Anthon Odengard
 **    finds the first index of a key that equals the search key.
 ******************************************************************************/
 
-firstIndexOf() works the same way as any binary search, by searching either
+firstIndexOf() works the same way as any binary search, by search either
 to the left or right based on a compare-call, until it finds an entry that
-matches the key. It then keeps searching to the left instead of returning.
-It finishes as usual when the left and right bounds meet.
+matches the key. Then it keeps searching to the left instead of returning. It finishes
+as usual when the left and right bounds meet.
 
 
 /******************************************************************************
@@ -33,16 +33,14 @@ The Array.sort method uses TimSort, an effective hybrid of insertion and merge s
 which has complexity n log n.
 
 
-allMatches(): Our firstIndex and lastIndex calls lastIndexOf and firstIndexOf which each takes
-log n time. Arraysort takes m log m time. To copy the array takes linear time, m. This yeilds a
-complexity of 2 log n + m + mlog m ~ O(log n + mlog m).
+allMatches():
+
+[..short explanation..]
 
 
+numberOfMatches():
 
-
-numberOfMatches(): 2 log n
-
-Comes from the firstIndexOf and lastIndexOf methods as above.
+[..short explanation..]
 
 
 
@@ -52,8 +50,9 @@ Comes from the firstIndexOf and lastIndexOf methods as above.
 ** A. Approximately how many hours did you spend on the assignment?
 ******************************************************************************/
 
-Group member A: Ludvig Jakobsson 8 hours
-Group member B: Anthon Odengard  8 hours
+[..group member..]:  [..hours..]
+[..group member..]:  [..hours..]
+[..group member..]:  [..hours..]
 
 
 /******************************************************************************

@@ -60,6 +60,7 @@ class AutocompleteCLI {
                     System.out.println(results[i]);
                 }
                 System.out.println();
+
             }
         }
         catch (Exception e) {

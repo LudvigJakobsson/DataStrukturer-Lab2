@@ -11,8 +11,8 @@ public class RangeBinarySearch {
         int L = 0;
         int R = terms.length - 1;
         while (L < R) {
-            int m = (int) ((R + L) / 2);
-            if (comparator.compare(terms[m], key) == -1) {
+            int m = (int) Math.floor((R + L) / 2);
+            if (comparator.compare(terms[m], key) < 0) {
                 L = m + 1;
             } else {
                 R = m;
@@ -21,7 +21,7 @@ public class RangeBinarySearch {
         if (comparator.compare(terms[L], key) == 0) {
             return L;
         }
-        else{
+        else {
             return -1;
         }
     }
@@ -33,10 +33,9 @@ public class RangeBinarySearch {
         int L = 0;
         int R = terms.length - 1;
         while (L < R) {
-            int m = (int) ((R + L) / 2);
-            if (comparator.compare(terms[m], key) == 1) {
+            int m = (int) Math.floor((R + L) / 2);
+            if (comparator.compare(terms[m], key) > 0) {
                 R = m;
-
             } else {
                 L = m + 1;
             }

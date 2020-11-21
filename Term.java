@@ -1,7 +1,4 @@
 import java.lang.*;
-import java.lang.Long;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class Term {
@@ -26,8 +23,13 @@ public class Term {
 
     // Extracts a prefix from the word.
     public String getPrefix(int len) {
-        return this.word.substring(0,len-1); //Handle len > word.length return word
+        if (len >= this.word.length()) {
+            return this.word;
+        } else {
+            return this.word.substring(0, len);
+        }
     }
+
 
     // Compares the two terms in case-insensitive lexicographic order.
     public static Comparator<Term> byLexicographicOrder() {

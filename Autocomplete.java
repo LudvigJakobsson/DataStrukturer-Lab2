@@ -20,18 +20,36 @@ public class Autocomplete {
     // Returns all terms that start with the given prefix, in descending order of weight.
     // Complexity: O(log N + M log M), where M is the number of matching terms
     public Term[] allMatches(String prefix) {
-        /* TODO */
-            //
-            //Hitta intervallet från firstIndexof(kort-dict, prefix) till lastIndexof(kort-dict, prefix)
-            //
-        return null;
-    }
+        try {
+
+
+            Term term = new Term(prefix, 0);
+            int firstIndex = RangeBinarySearch.firstIndexOf(dictionary, term, Term.byPrefixOrder(prefix.length()));
+            int lastIndex = RangeBinarySearch.lastIndexOf(dictionary, term, Term.byPrefixOrder(prefix.length()));
+            Term[] matches = Arrays.copyOfRange(dictionary, firstIndex, lastIndex);
+            Arrays.sort(matches, Term.byReverseWeightOrder());
+            return matches;
+        }catch(Exception e){
+            System.out.println("prefix not found");
+        }
+        return new Term[0];
+        }
+
+
+
 
     // Returns the number of terms that start with the given prefix.
     // Complexity: O(log N)
     public int numberOfMatches(String prefix) {
-        /* TODO */
-        return 0;
+        Term term = new Term(prefix, 0);
+        int firstIndex = RangeBinarySearch.firstIndexOf(dictionary, term, Term.byPrefixOrder(prefix.length()));
+        int lastIndex = RangeBinarySearch.lastIndexOf(dictionary, term, Term.byPrefixOrder(prefix.length()));
+        if (firstIndex == -1) {
+            return 0;
+        } else {
+           return lastIndex + 1 - firstIndex;
+        }
+        //return numberOfMatches;
     }
 
 }
